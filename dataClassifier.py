@@ -76,16 +76,7 @@ def enhancedFeatureExtractorDigit(datum):
     ##
     """
     features =  basicFeatureExtractorDigit(datum)
-    features =  basicFeatureExtractorDigit(datum)
-    print(datum.getPixel(11,7))
-    quit()
-    # Matrix = [[0 for x in range(30)] for y in range(30)] 
-    # for x,y in features:
-    #     Matrix[x][y] = features[(x,y)]
-    # import numpy as np
-    # print(np.matrix(Matrix))
-    # quit()
-
+  
     # Compute gradients
     for x in range(1, DIGIT_DATUM_WIDTH):
         for y in range(1, DIGIT_DATUM_HEIGHT):
@@ -94,7 +85,6 @@ def enhancedFeatureExtractorDigit(datum):
 
             features[("verti", x, y)] = int(datum.getPixel(x, y) >
                                             datum.getPixel(x, y - 1))
-
     # Check for continuous regions
     def getNeighbors(x, y):
         neighbors = []
@@ -126,13 +116,6 @@ def enhancedFeatureExtractorDigit(datum):
     features["contiguous1"] = (contiguous >> 1) % 2
     features["contiguous2"] = (contiguous >> 2) % 2
 
-    # Matrix = [[0 for x in range(30)] for y in range(30)] 
-    # for x,y in features:
-    #     Matrix[x][y] = features[(x,y)]
-    # import numpy as np
-    # print(np.matrix(Matrix))
-    print(features)
-    quit()
     return features
 
     "*** YOUR CODE HERE ***"
